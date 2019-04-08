@@ -1,0 +1,216 @@
+{    "interactionModel": {
+        "languageModel": {
+            "invocationName": "hello world",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "SimpleIntent",
+                    "slots": [
+                        {
+                            "name": "slotA",
+                            "type": "slotAType"
+                        }
+                    ],
+                    "samples": [
+                        "hello"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "slotAType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "orange"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pear"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apple"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "SimpleIntent",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1157651938625"
+                    },
+                    "slots": [
+                        {
+                            "name": "slotA",
+                            {
+                                "interactionModel": {
+                                    "languageModel": {
+                                        "invocationName": "hello world",
+                                        "intents": [
+                                            {
+                                                "name": "AMAZON.CancelIntent",
+                                                "samples": []
+                                            },
+                                            {
+                                                "name": "AMAZON.HelpIntent",
+                                                "samples": []
+                                            },
+                                            {
+                                                "name": "AMAZON.StopIntent",
+                                                "samples": []
+                                            },
+                                            {
+                                                "name": "SimpleIntent",
+                                                "slots": [
+                                                    {
+                                                        "name": "slotA",
+                                                        "type": "slotAType"
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "AMAZON.DE_FIRST_NAME"
+                                                    }
+                                                ],
+                                                "samples": [
+                                                    "my name is {name} and my favorite fruit is {slotA}",
+                                                    "my name is {name}",
+                                                    "my favorite fruit is {slotA} ",
+                                                    "hello"
+                                                ]
+                                            },
+                                            {
+                                                "name": "AMAZON.NavigateHomeIntent",
+                                                "samples": []
+                                            }
+                                        ],
+                                        "types": [
+                                            {
+                                                "name": "slotAType",
+                                                "values": [
+                                                    {
+                                                        "name": {
+                                                            "value": "orange"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": {
+                                                            "value": "pear"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": {
+                                                            "value": "apple"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "dialog": {
+                                        "intents": [
+                                            {
+                                                "name": "SimpleIntent",
+                                                "confirmationRequired": true,
+                                                "prompts": {
+                                                    "confirmation": "Confirm.Intent.1157651938625"
+                                                },
+                                                "slots": [
+                                                    {
+                                                        "name": "slotA",
+                                                        "type": "slotAType",
+                                                        "confirmationRequired": false,
+                                                        "elicitationRequired": true,
+                                                        "prompts": {
+                                                            "elicitation": "Elicit.Slot.1157651938625.961850134598"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "AMAZON.DE_FIRST_NAME",
+                                                        "confirmationRequired": false,
+                                                        "elicitationRequired": false,
+                                                        "prompts": {}
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "delegationStrategy": "ALWAYS"
+                                    },
+                                    "prompts": [
+                                        {
+                                            "id": "Elicit.Slot.1157651938625.961850134598",
+                                            "variations": [
+                                                {
+                                                    "type": "PlainText",
+                                                    "value": "Say apple, pear or orange"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "Confirm.Intent.1157651938625",
+                                            "variations": [
+                                                {
+                                                    "type": "PlainText",
+                                                    "value": "{slotA} , is that correct"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }                     "type": "slotAType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1157651938625.961850134598"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1157651938625.961850134598",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Say apple, pear or orange"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1157651938625",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "{slotA} , is that correct"
+                    }
+                ]
+            }
+        ]
+    }
+}
