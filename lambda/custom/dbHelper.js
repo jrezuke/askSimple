@@ -26,23 +26,23 @@ dbHelper.prototype.addFruit = (item, userId, deviceId) => {
     });
 }
 
-dbHelper.prototype.getFruit = (fruit, userId) => {
+dbHelper.prototype.queryFruit = (fruit, userId) => {
     return new Promise((resolve, reject) => {
         const params = {
             TableName: tableName,
-            Key: {
-                "userId": userId,
-                "movieTitle": fruit 
-            },
-            ConditionExpression: "attribute_exists(fruit)"
+            KeyConditionExpression: 'userId = :hkey and movieTitle = :rkey',
+            ExpressionAttributeValues: {
+                ':hkey': userId,
+                ':rkey': fruit 
+            }
         }
-        docClient.get(params, function (err, data) {
+        docClient.query(params, function (err, data) {
             if (err) {
-                console.error("Unable to delete item. Error JSON:", JSON.stringify(err, null, 2));
+                console.error("Unable to query item. Error JSON:", JSON.stringify(err, null, 2));
                 return reject(JSON.stringify(err, null, 2))
             }
             console.log(JSON.stringify(err));
-            console.log("get item succeeded:", JSON.stringify(data, null, 2));
+            console.log("query item succeeded:", JSON.stringify(data, null, 2));
             resolve(data)
         });
     });

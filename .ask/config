@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-ask-simple-default",
             "handler": "index.handler",
-            "revisionId": "70bdd98b-2ef9-4353-900a-457aff3e8c0b",
+            "revisionId": "a8fdda90-f68a-47ea-80c4-3c235642206c",
             "runtime": "nodejs8.10"
           }
         ]

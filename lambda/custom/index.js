@@ -111,12 +111,12 @@ const requestInterceptor = {
     const deviceId = handlerInput.requestEnvelope.context.System.device.deviceId;
     console.log("requestInterceptor.user id: ", userId);
     console.log("requestInterceptor.deviceId", deviceId);
-    const attrs = await dbHelper.getFruit("apple", userId)
+    const attrs = await dbHelper.queryFruit("apple", userId)
       .then((data) => {
         console.log("requestInterceptor.data", data);
       })
       .catch((err) => {
-        console.log("Error occured while saving movie", err);
+        console.log("Error occured while quering movie", err);
         return;
       })    
   }
